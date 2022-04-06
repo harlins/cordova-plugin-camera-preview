@@ -860,23 +860,37 @@ public class CameraPreview extends CordovaPlugin implements CameraActivity.Camer
   }
 
   private boolean getSupportedFlashModes(CallbackContext callbackContext) {
+    Log.d(TAG, "getSupportedFlashModes 1");
     if(this.hasCamera(callbackContext) == false){
+      Log.d(TAG, "getSupportedFlashModes 2");
       return true;
     }
+    Log.d(TAG, "getSupportedFlashModes 3");
 
     Camera camera = fragment.getCamera();
+    Log.d(TAG, "getSupportedFlashModes 4");
     Camera.Parameters params = camera.getParameters();
+    Log.d(TAG, "getSupportedFlashModes 5");
     List<String> supportedFlashModes;
+    Log.d(TAG, "getSupportedFlashModes 6");
     supportedFlashModes = params.getSupportedFlashModes();
+    Log.d(TAG, "getSupportedFlashModes 7");
     JSONArray jsonFlashModes = new JSONArray();
+    Log.d(TAG, "getSupportedFlashModes 8");
 
     if (supportedFlashModes != null) {
+      Log.d(TAG, "getSupportedFlashModes 9");
       for (int i=0; i<supportedFlashModes.size(); i++) {
+          Log.d(TAG, "getSupportedFlashModes 10");
           jsonFlashModes.put(new String(supportedFlashModes.get(i)));
+          Log.d(TAG, "getSupportedFlashModes 11");
       }
+      Log.d(TAG, "getSupportedFlashModes 12");
     }
 
+    Log.d(TAG, "getSupportedFlashModes 13");
     callbackContext.success(jsonFlashModes);
+    Log.d(TAG, "getSupportedFlashModes 14");
     return true;
   }
 
