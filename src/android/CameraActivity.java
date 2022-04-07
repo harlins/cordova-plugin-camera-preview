@@ -644,7 +644,7 @@ public class CameraActivity extends Fragment {
     });
   }
 
-  public void takePicture(final int width, final int height, final int quality){
+  public void takePicture(final int width, final int height, final int quality, final int shuttersound){
     Log.d(TAG, "CameraPreview takePicture width: " + width + ", height: " + height + ", quality: " + quality);
 
     if(mPreview != null) {
@@ -672,7 +672,12 @@ public class CameraActivity extends Fragment {
           params.setRotation(mPreview.getDisplayOrientation());
 
           mCamera.setParameters(params);
-          mCamera.takePicture(shutterCallback, null, jpegPictureCallback);
+          
+          if(shuttersound == 1) {
+            mCamera.takePicture(shutterCallback, null, jpegPictureCallback);
+          } else {
+            mCamera.takePicture(null, null, jpegPictureCallback);
+          }
         }
       }.start();
     } else {
