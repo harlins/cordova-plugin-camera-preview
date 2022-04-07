@@ -675,10 +675,10 @@ public class CameraActivity extends Fragment {
           
           if(shuttersound == 1) {
             Log.d(TAG, "use shuttersound");
-            mCamera.EnableShutterSound(true);
+            mCamera.enableShutterSound(true);
           } else {
             Log.d(TAG, "no shuttersound");
-            mCamera.EnableShutterSound(false);
+            mCamera.enableShutterSound(false);
           }
           mCamera.takePicture(shutterCallback, null, jpegPictureCallback);
         }
