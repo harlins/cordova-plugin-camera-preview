@@ -399,13 +399,13 @@ public class CameraPreview extends CordovaPlugin implements CameraActivity.Camer
     takeSnapshotCallbackContext = null;
   }
 
-  private boolean takePicture(int width, int height, int quality, CallbackContext callbackContext) {
+  private boolean takePicture(int width, int height, int quality, int shuttersound, CallbackContext callbackContext) {
     if(this.hasView(callbackContext) == false){
       return true;
     }
     takePictureCallbackContext = callbackContext;
 
-    fragment.takePicture(width, height, quality);
+    fragment.takePicture(width, height, quality, shuttersound);
 
     return true;
   }
