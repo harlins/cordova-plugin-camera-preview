@@ -120,7 +120,7 @@ public class CameraPreview extends CordovaPlugin implements CameraActivity.Camer
         return true;
       }
     } else if (TAKE_PICTURE_ACTION.equals(action)) {
-      return takePicture(args.getInt(0), args.getInt(1), args.getInt(2), callbackContext);
+      return takePicture(args.getInt(0), args.getInt(1), args.getInt(2), args.getInt(3), callbackContext);
     } else if (TAKE_SNAPSHOT_ACTION.equals(action)) {
       return takeSnapshot(args.getInt(0), callbackContext);
     }else if (START_RECORD_VIDEO_ACTION.equals(action)) {
